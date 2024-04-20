@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { counterReducer } from './baseRedux/counterReducer.js';
 import { actionsCounterReducer } from './reactActions/actionsCounterReducer.js';
+import { todosReducer } from './coreRedux/todosReducer.js';
 
 /**
  * @typedef {Object} RootState
@@ -12,4 +13,4 @@ import { actionsCounterReducer } from './reactActions/actionsCounterReducer.js';
  * Root reducer combining all reducers of the application.
  * @type {RootState}
  */
-export const reducers = combineReducers({ counterReducer, actionsCounterReducer });
+export const reducers = combineReducers({ counterReducer, actionsCounterReducer, todosReducer });
