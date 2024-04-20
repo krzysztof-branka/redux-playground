@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getValue } from '../store/selector.js';
+import { getValue } from '../store/baseRedux/selector.js';
 
 const ReduxCounter = () => {
     const value = useSelector(getValue);
