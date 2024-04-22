@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 /**
  * @param {function} onAddTodo
@@ -12,7 +12,8 @@ const TodoForm = ({onAddTodo}) => {
         e.preventDefault();
         onAddTodo({
             id: crypto.randomUUID(),
-            text
+            text,
+            isCompleted: false
         });
         setText("");
     }

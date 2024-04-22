@@ -24,6 +24,7 @@ export const persistTodos = store => next => action => {
     if (
         action.type === TodosActions.ADD_TODO
         || action.type === TodosActions.REMOVE_TODO
+        || action.type === TodosActions.COMPLETE_TODO
     ) {
         next(action);
 

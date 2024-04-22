@@ -12,6 +12,14 @@ export const removeTodo = (todoId) => ({
     }
 });
 
+export const completeTodo = (todoId, isCompleted) => ({
+    type: TodosActions.COMPLETE_TODO,
+    payload: {
+        id: todoId,
+        isCompleted
+    }
+});
+
 export const loadTodos = () => ({
     type: TodosActions.LOAD_TODOS
 });
@@ -29,6 +37,19 @@ export const todosReducer = (state = [], action) => {
 
     if (action.type === TodosActions.REMOVE_TODO) {
         return state.filter(todo => todo.id !== action.payload.id);
+    }
+
+    if (action.type === TodosActions.COMPLETE_TODO) {
+        return state.map(todo => {
+            if (todo.id !== action.payload.id) {
+                return todo;
+            }
+
+            return {
+                ...todo,
+                isCompleted: action.payload.isCompleted
+            }
+        })
     }
 
     if (action.type === TodosActions.TODOS_LOADED) {
