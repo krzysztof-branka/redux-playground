@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux';
 import { loadTodos } from '../store/coreRedux/todosReducer.js';
 import { useEffect, useState } from 'react';
 import TodoSearch from './common/TodoSearch.jsx';
+import TodoViewReduxActions from './reduxActions/TodoViewReduxActions.jsx';
+import { loadTodosAction } from '../store/reduxActions/actions.js';
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -13,6 +15,7 @@ const Main = () => {
 
     useEffect(() => {
         dispatch(loadTodos());
+        dispatch(loadTodosAction());
     }, [dispatch]);
 
     return (
@@ -23,6 +26,7 @@ const Main = () => {
             <ReduxActionsCounter/>
             <TodoViewReactCore searchPhrase={searchText}/>
             <TodoViewReduxCore searchPhrase={searchText}/>
+            <TodoViewReduxActions searchPhrase={searchText}/>
         </div>
     );
 }
