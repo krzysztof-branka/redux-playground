@@ -1,3 +1,5 @@
+import Button from '../common/Button.jsx';
+
 /**
  * @param {[object]} todos
  * @param {function} onRemoveTodo
@@ -7,7 +9,7 @@
  */
 const TodoList = ({todos, onRemoveTodo, onCompleteTodo}) => {
     return (
-        <div>
+        <div className="mt-4">
             { todos.map(todo => (
                 <div key={ todo.id }>
                     <input
@@ -15,7 +17,7 @@ const TodoList = ({todos, onRemoveTodo, onCompleteTodo}) => {
                         onChange={(e) => onCompleteTodo(todo.id, e.target.checked)}
                         type="checkbox"/>
                     { todo.text }
-                    <button onClick={ () => onRemoveTodo(todo.id) }>x</button>
+                    <Button onClick={ () => onRemoveTodo(todo.id) }>x</Button>
                 </div>
             )) }
         </div>

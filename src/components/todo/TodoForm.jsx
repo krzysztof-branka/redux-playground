@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Button from '../common/Button.jsx';
 
 /**
  * @param {function} onAddTodo
@@ -21,7 +22,7 @@ const TodoForm = ({onAddTodo}) => {
     return (
         <form onSubmit={ handleAddTodo }>
             <input value={text} onChange={ (e) => setText(e.target.value) } type="text"/>
-            <button>Add</button>
+            <Button className="ml-2">Add</Button>
         </form>
     );
 };

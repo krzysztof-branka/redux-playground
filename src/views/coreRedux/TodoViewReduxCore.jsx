@@ -1,5 +1,5 @@
-import TodoForm from '../common/TodoForm.jsx';
-import TodoList from '../common/TodoList.jsx';
+import TodoForm from '../../components/todo/TodoForm.jsx';
+import TodoList from '../../components/todo/TodoList.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchTodosByText } from '../../store/coreRedux/selectors.js';
 import { addTodo, completeTodo, removeTodo } from '../../store/coreRedux/todosReducer.js';
