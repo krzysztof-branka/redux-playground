@@ -8,8 +8,9 @@ The idea is to build a simple todo app using different approaches and compare th
 # Checklist
 - [x] React Core example
 - [x] Redux Core example
-- [ ] Reselect
-- [ ] Redux Actions
-- [ ] Redux-Saga
+- [x] Reselect
+- [x] Redux Actions
+- [x] Redux-Saga
 - [ ] Redux-Observable
+- [ ] Redux Toolkit
 - [ ] Normalizr

@@ -34,8 +34,6 @@ const TodoViewReactCore = memo(({searchPhrase}) => {
         persistTodos(todos);
     }, [todos]);
 
-    console.log(todos);
-
     return (
         <>
             <TodoForm onAddTodo={onAddTodo}/>

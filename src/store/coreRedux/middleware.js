@@ -1,6 +1,11 @@
 import { TODOS_REDUX_CORE_KEY, TodosActions } from './constants.js';
 import { todosLoaded } from './todosReducer.js';
 
+export const loggingMiddleware = () => next => action => {
+    console.log(action);
+    next(action);
+}
+
 export const loadPersistedTodos = store => next => action => {
     if (action.type === TodosActions.LOAD_TODOS) {
         const persistedTodos = localStorage.getItem(TODOS_REDUX_CORE_KEY);

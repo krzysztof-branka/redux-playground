@@ -1,5 +1,3 @@
-import ReduxCounter from './ReduxCounter.jsx';
-import ReduxActionsCounter from './ReduxActionsCounter.jsx';
 import TodoViewReactCore from './coreReact/TodoViewReactCore.jsx';
 import TodoViewReduxCore from './coreRedux/TodoViewReduxCore.jsx';
 import { useDispatch } from 'react-redux';
@@ -20,12 +18,13 @@ const Main = () => {
 
     return (
         <div>
-            <h1>React playground</h1>
-            <ReduxCounter/>
+            <h1>React Redux playground</h1>
             <TodoSearch searchText={searchText} onSearchTextChange={(e) => setSearchText(e.target.value)}/>
-            <ReduxActionsCounter/>
+            <h2>Core React</h2>
             <TodoViewReactCore searchPhrase={searchText}/>
+            <h2>Core Redux</h2>
             <TodoViewReduxCore searchPhrase={searchText}/>
+            <h2>Redux Actions and Redux Saga</h2>
             <TodoViewReduxActions searchPhrase={searchText}/>
         </div>
     );
