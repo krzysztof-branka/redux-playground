@@ -1,11 +1,13 @@
 import TodoViewReactCore from './coreReact/TodoViewReactCore.jsx';
 import TodoViewReduxCore from './coreRedux/TodoViewReduxCore.jsx';
 import { useDispatch } from 'react-redux';
-import { loadTodos } from '../store/coreRedux/todosReducer.js';
 import { useEffect, useState } from 'react';
 import TodoSearch from '../components/todo/TodoSearch.jsx';
 import TodoViewReduxActions from './reduxActions/TodoViewReduxActions.jsx';
 import { loadTodosAction } from '../store/reduxActions/actions.js';
+import 'react-toastify/dist/ReactToastify.css';
+import ToastsPortal from '../components/common/ToastsPortal.jsx';
+import { loadTodos } from '../store/coreRedux/actionCreators.js';
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -34,6 +36,7 @@ const Main = () => {
                     <TodoViewReduxActions searchPhrase={ searchText }/>
                 </div>
             </div>
+            <ToastsPortal/>
         </div>
     );
 }

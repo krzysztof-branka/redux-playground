@@ -13,3 +13,11 @@ export const searchTodosByText = createSelector(
         return todo.text.toLowerCase().includes(searchedText.toLowerCase())
     })
 )
+
+export const getTodoById = createSelector(
+    [
+        getTodos,
+        (_, id) => id
+    ],
+    (todos, id) => todos.find(todo => todo.id === id)
+)

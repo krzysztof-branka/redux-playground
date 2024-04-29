@@ -6,4 +6,8 @@ export const TodosActions = {
     TODOS_LOADED: "TODOS_LOADED"
 };
 
+export const ToastActions = {
+    SHOW_TOAST: "SHOW_TOAST"
+}
+
 export const TODOS_REDUX_CORE_KEY = "todos-redux-core";

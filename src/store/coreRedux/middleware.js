@@ -1,5 +1,7 @@
-import { TODOS_REDUX_CORE_KEY, TodosActions } from './constants.js';
-import { todosLoaded } from './todosReducer.js';
+import { ToastActions, TODOS_REDUX_CORE_KEY, TodosActions } from './constants.js';
+import { showToast, todosLoaded } from './actionCreators.js';
+import { getTodoById } from './selectors.js';
+import { toast } from 'react-toastify';
 
 export const loggingMiddleware = () => next => action => {
     console.log(action);
@@ -39,4 +41,24 @@ export const persistTodos = store => next => action => {
     }
 
     next(action)
+}
+
+export const showToastOnCompleteTodo = store => next => action => {
+    next(action)
+
+    if (action.type === TodosActions.COMPLETE_TODO && action.payload.isCompleted) {
+        const completedTodo = getTodoById(store.getState(), action.payload.id);
+
+        if (!completedTodo) return;
+
+        store.dispatch(showToast(`Task "${completedTodo.text}" completed!`))
+    }
+}
+
+export const showToasts = () => next => action => {
+    next(action)
+
+    if (action.type === ToastActions.SHOW_TOAST) {
+        toast(action.payload)
+    }
 }

@@ -1,6 +1,6 @@
 import { applyMiddleware, compose, legacy_createStore } from 'redux';
 import { reducers } from './reducers.js';
-import { loadPersistedTodos, loggingMiddleware, persistTodos } from './coreRedux/middleware.js';
+import { loadPersistedTodos, loggingMiddleware, persistTodos, showToastOnCompleteTodo, showToasts } from './coreRedux/middleware.js';
 import createSagaMiddleware from 'redux-saga'
 import saga from './reduxActions/saga.js';
 
@@ -14,7 +14,7 @@ const composeEnhancers =
         : compose;
 
 const enhancer = composeEnhancers(
-    applyMiddleware(sagaMiddleware, loggingMiddleware, loadPersistedTodos, persistTodos),
+    applyMiddleware(sagaMiddleware, loggingMiddleware, loadPersistedTodos, persistTodos, showToastOnCompleteTodo, showToasts),
 );
 export const store = legacy_createStore(reducers, enhancer);
 

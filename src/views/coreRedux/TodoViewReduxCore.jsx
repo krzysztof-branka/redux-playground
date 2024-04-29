@@ -2,7 +2,7 @@ import TodoForm from '../../components/todo/TodoForm.jsx';
 import TodoList from '../../components/todo/TodoList.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchTodosByText } from '../../store/coreRedux/selectors.js';
-import { addTodo, completeTodo, removeTodo } from '../../store/coreRedux/todosReducer.js';
+import { addTodo, completeTodo, removeTodo } from '../../store/coreRedux/actionCreators.js';
 
 const TodoViewReduxCore = ({searchPhrase: searchPhrase}) => {
     const todos = useSelector((state) => searchTodosByText(state, searchPhrase));

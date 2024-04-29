@@ -2,6 +2,7 @@ import { memo, useEffect, useState } from 'react';
 import TodoForm from '../../components/todo/TodoForm.jsx';
 import TodoList from '../../components/todo/TodoList.jsx';
 import { getPersistedTodos, persistTodos } from './persist.js';
+import { toast } from 'react-toastify';
 
 const TodoViewReactCore = memo(({searchPhrase}) => {
     const [todos, setTodos] = useState(getPersistedTodos);
@@ -18,6 +19,7 @@ const TodoViewReactCore = memo(({searchPhrase}) => {
     }
 
     const onCompleteTodo = (todoId, isCompleted) => {
+        const todoToComplete = todos.find(todo => todo.id === todoId);
         setTodos(prevTodos => prevTodos.map(todo => {
             if (todo.id !== todoId) {
                 return todo;
@@ -28,6 +30,10 @@ const TodoViewReactCore = memo(({searchPhrase}) => {
                 isCompleted
             }
         }));
+
+        if (isCompleted) {
+            toast(`Task "${todoToComplete.text}" completed!`)
+        }
     }
 
     useEffect(() => {
