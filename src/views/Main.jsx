@@ -8,6 +8,7 @@ import { loadTodosAction } from '../store/reduxActions/actions.js';
 import 'react-toastify/dist/ReactToastify.css';
 import ToastsPortal from '../components/common/ToastsPortal.jsx';
 import { loadTodos } from '../store/coreRedux/actionCreators.js';
+import TodoViewToolkitAndObservables from './toolkitAndObservables/TodoViewToolkitAndObservables.jsx';
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -34,6 +35,10 @@ const Main = () => {
                 <div className="w-1/3">
                     <h2 className="text-2xl">Redux Actions and Redux Saga</h2>
                     <TodoViewReduxActions searchPhrase={ searchText }/>
+                </div>
+                <div className="w-1/3">
+                    <h2 className="text-2xl">Redux Toolkit</h2>
+                    <TodoViewToolkitAndObservables searchPhrase={ searchText }/>
                 </div>
             </div>
             <ToastsPortal/>
