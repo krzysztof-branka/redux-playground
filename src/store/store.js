@@ -5,7 +5,6 @@ import createSagaMiddleware from 'redux-saga'
 import saga from './reduxActions/saga.js';
 import { createEpicMiddleware } from 'redux-observable';
 import { rootEpic } from './epics.js';
-import { pongEpic } from './toolkitAndObservables/epic.js';
 
 const sagaMiddleware = createSagaMiddleware()
 const epicMiddleware = createEpicMiddleware();
@@ -23,4 +22,4 @@ const enhancer = composeEnhancers(
 export const store = legacy_createStore(reducers, enhancer);
 
 sagaMiddleware.run(saga)
-epicMiddleware.run(pongEpic)
+epicMiddleware.run(rootEpic)

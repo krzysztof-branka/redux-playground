@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ToastsPortal from '../components/common/ToastsPortal.jsx';
 import { loadTodos } from '../store/coreRedux/actionCreators.js';
 import TodoViewToolkitAndObservables from './toolkitAndObservables/TodoViewToolkitAndObservables.jsx';
+import { loadTodosToolkit } from '../store/toolkitAndObservables/reducer.js';
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const Main = () => {
     useEffect(() => {
         dispatch(loadTodos());
         dispatch(loadTodosAction());
+        dispatch(loadTodosToolkit());
     }, [dispatch]);
 
     return (

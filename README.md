@@ -11,6 +11,5 @@ The idea is to build a simple todo app using different approaches and compare th
 - [x] Reselect
 - [x] Redux Actions
 - [x] Redux-Saga
-- [ ] Redux-Observable
-- [ ] Redux Toolkit
-- [ ] Normalizr
+- [x] Redux-Observable
+- [x] Redux Toolkit

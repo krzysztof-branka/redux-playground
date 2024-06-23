@@ -17,13 +17,26 @@ const todosSlice = createSlice({
         completeTodoToolkit: (state, action) => {
             return state.map((todo) => {
                 if (todo.id === action.payload.id) {
-                    todo.isCompleted = action.payload.isCompleted;
+                    return {
+                        ...todo,
+                        isCompleted: action.payload.isCompleted,
+                    };
                 }
                 return todo;
             });
         },
+        loadTodosToolkit: (state) => state,
+        todosLoaded: (state, action) => action.payload,
+        showToast: (state) => state,
     },
 });
 
-export const { addTodoToolkit, removeTodoToolkit, completeTodoToolkit } = todosSlice.actions;
+export const {
+    addTodoToolkit,
+    removeTodoToolkit,
+    completeTodoToolkit,
+    loadTodosToolkit,
+    todosLoaded,
+    showToast
+} = todosSlice.actions;
 export const toolkitTodosReducer = todosSlice.reducer;
